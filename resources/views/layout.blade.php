@@ -93,18 +93,16 @@
             <div class="col-md-3">
                 <div class="sidebar">
                     <a class="active" href="#home">Home</a>
-                    <a href="#news">Student</a>
-                    <a href="#contact">Teacher</a>
-                    <a href="#about">Courses</a>
-                    <a href="#about">Enrollment</a>
-                    <a href="#about">Payment</a>
+                    <a href="{{ url('/students') }}">Student</a>
+                    <a href="{{ url('/teachers') }}">Teacher</a>
+                    <a href="{{ url('/courses') }}">Courses</a>
+                    <a href="{{ url('/Enrollment') }}">Enrollment</a>
+                    <a href="{{ url('/payment') }}">Payment</a>
                 </div>
             </div>
             <!-- Page content -->
             <div class="col-md-9">
-                <div class="content">
-                    @yield('content')
-                </div>
+                @yield('content')
             </div>
         </div>
 
