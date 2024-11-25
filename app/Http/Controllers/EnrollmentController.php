@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
-use App\Models\Student;
+use App\Models\Enrollment;
 
-class StudentController extends Controller
+class EnrollmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $students = Student::all();
-        return View('students.index')->with('students',$students);
+        $enrollments = Enrollment::all();
+        return View('enrollments.index')->with('enrollments',$enrollments);
     }
 
     /**
@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create(): View
     {
-        return View('students.create');
+        return View('enrollments.create');
     }
 
     /**
@@ -33,8 +33,8 @@ class StudentController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $input = $request->all();
-        Student::create($input);
-        return Redirect('students')->with('flash_message','Student Added');
+        Enrollment::create($input);
+        return Redirect('enrollments')->with('flash_message','Enrollment Added');
     }
 
     /**
@@ -42,8 +42,8 @@ class StudentController extends Controller
      */
     public function show(string $id): View
     {
-        $students = Student::find($id);
-        return view('students.show')->with('students', $students);
+        $enrollments = Enrollment::find($id);
+        return view('enrollments.show')->with('enrollments', $enrollments);
     }
 
     /**
@@ -51,8 +51,8 @@ class StudentController extends Controller
      */
     public function edit(string $id): View
     {
-        $students = Student::find($id);
-        return view('students.edit')->with('students', $students);
+        $enrollments = Enrollment::find($id);
+        return view('enrollments.edit')->with('enrollments', $enrollments);
     }
 
     /**
@@ -60,10 +60,10 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id): RedirectResponse
     {
-        $students = Student::find($id);
+        $enrollments = Enrollment::find($id);
         $input = $request->all();
-        $students->update($input);
-        return redirect('students')->with('flash_message', 'student Updated!');  
+        $enrollments->update($input);
+        return redirect('enrollments')->with('flash_message', 'Enrollment Updated!');  
     }
 
     /**
@@ -71,7 +71,7 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        Student::destroy($id);
-        return redirect('students')->with('flash_message', 'Student deleted!'); 
+        Enrollment::destroy($id);
+        return redirect('enrollments')->with('flash_message', 'Enrollment deleted!'); 
     }
 }
