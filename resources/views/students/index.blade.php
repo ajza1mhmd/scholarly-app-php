@@ -18,6 +18,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Address</th>
+                        <th>Age</th>
                         <th>Mobile</th>
                         <th>Actions</th>
                     </tr>
